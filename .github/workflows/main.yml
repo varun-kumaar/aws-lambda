@@ -5,15 +5,15 @@ jobs:
     name: build and deploy lambda
     strategy:
       matrix:
-        pyhton: [3.6]
+        pyhton: [3.x]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Use python ${{ matrix.python-version }}
-        uses: actions/setup-python@v1
+      - name: Use python ${{ matrix.Python-version }}
+        uses: actions/setup-Python@v1
         with:
-          node-version: ${{ matrix.python-version }}
-      - name: npm install and build
+          node-version: ${{ matrix.Python-version }}
+      - name: Python install and build
         run: |
           npm ci
           npm run build --if-present
